@@ -40,8 +40,9 @@ class Training:
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        raise NotImplementedError('Метод get_spent_calories'
-                                  'не описан в базовом классе')
+        raise NotImplementedError(
+            'Метод get_spent_calories не описан в базовом классе'
+        )
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -152,4 +153,5 @@ if __name__ == '__main__':
 
     for workout_type, data in packages:
         training = read_package(workout_type, data)
-        main(training)
+        if training is not None:
+            main(training)
