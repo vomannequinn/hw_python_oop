@@ -40,7 +40,8 @@ class Training:
 
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
-        NotImplementedError
+        raise NotImplementedError('Метод get_spent_calories'
+                                  'не описан в базовом классе')
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -132,7 +133,8 @@ def read_package(workout_type: str, data: list) -> Training:
     }
     if workout_type not in training_types:
         print('Указанный тип тренировки не существует')
-    return training_types[workout_type](*data)
+    else:
+        return training_types[workout_type](*data)
 
 
 def main(training: Training) -> None:
